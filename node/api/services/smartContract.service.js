@@ -21,31 +21,6 @@ exports.init = function () {
   web3 = connectionHelper.setConnection();
 };
 
-function setGreet(newGreet) {
-  var smartContractAddress = readFileHelper.getSmartContractAddress();
-  var abi = readFileHelper.getAbi();
-  var fromAccount = readFileHelper.getFromAccount();
-  return new Promise((resolve, reject) => {
-    try {
-      var contractFactory = new web3.eth.Contract(abi, smartContractAddress);
-      contractFactory.methods["setGreet"](newGreet)
-        .send({ from: fromAccount })
-        .then(result => {
-          log.info(`-----> {callSmartContract} OUT --> result: ${JSON.stringify(result)}`);
-          resolve(result);
-        })
-        .catch(error => {
-          console.log(`-----> {callSmartContract} (ERROR):`);
-          reject(error);
-        })
-
-    } catch (error) {
-      console.log(`-----> {callSmartContract} (ERROR):`);
-      reject(error);
-    }
-  });
-}
-
 function getGreet() {
   var smartContractAddress = readFileHelper.getSmartContractAddress();
   var abi = readFileHelper.getAbi();
@@ -77,6 +52,5 @@ function getGreet() {
 ////////////////////////////////////////////////////////////////////////////////
 
 module.exports = {
-  getGreet,
-  setGreet
+  getGreet
 }

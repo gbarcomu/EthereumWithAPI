@@ -57,11 +57,3 @@ con "ethereumConnection.helper" para la conexión mediante **web3** a Ethereum.
 Para cada nuevo método definido en el controlador añadir en el editor de Swagger la definición de la ruta correspondiente.
 
 Los cambios se actualizan automáticamente, no es necesario levantar de nuevo el proyecto para poder probarlos.
-
- ## Bugs
-
- Sería deseable que el comando
- ```
- npm install
- ```
- fuese ejecutado dentro del contenedor, por ahora no funciona correctamente, lo que implica que hay que instalarlo desde fuera (en la carpeta **node**) y para ello tener en la máquina anfitriona la misma versión de **NodeJS** que la instalada en el contenedor (8.9.1).

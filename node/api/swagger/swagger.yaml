@@ -42,27 +42,6 @@ paths:
 ########### SMART CONTRACT ####
 ###############################
 
-  /setgreet:
-    x-swagger-router-controller: smartContract.controller
-    post:
-      description: Modify greet
-      operationId: setGreet
-      parameters:
-        - in: body
-          name: newGreet
-          description: New greet
-          schema:
-            $ref: "#/definitions/newGreet"
-      responses:
-        "201":
-          description: Success
-          schema:
-            $ref: "#/definitions/genericObjectResponse"
-        default:
-          description: Error
-          schema:
-            $ref: "#/definitions/errorResponse"
-            
   /getgreet:
     x-swagger-router-controller: smartContract.controller
     get:
@@ -90,13 +69,7 @@ definitions:
 ###############################
 ########### ARGUMENTS #########
 ############################### 
-        
-  newGreet:
-    properties:
-      newgreet:
-        type: string
-    required:
-      - newgreet
+
 
 ###############################
 ########## RESPONSES ##########
