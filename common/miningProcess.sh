@@ -1,0 +1,1 @@
+geth --exec 'loadScript("/opt/common/miningProcess.js")' attach ipc:/opt/data/geth.ipc

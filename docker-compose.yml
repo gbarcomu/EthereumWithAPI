@@ -1,0 +1,14 @@
+# MAINTAINER Blockchain_team
+version: "3"
+services:
+  bootnode:
+    build:
+      context: .
+    user: "root"
+    ports:
+      - "30302:30302"
+      - "10010:10010"
+    volumes:
+      - ./common:/opt/common
+      - ./node:/opt/node
+    command: sh ./opt/common/startBootnode.sh
