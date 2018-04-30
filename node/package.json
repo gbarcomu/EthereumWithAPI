@@ -1,0 +1,25 @@
+{
+  "name": "ethereum_rest_api",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Ethereum API REST with Swagger and Web3",
+  "keywords": [],
+  "author": "Blockchain Team",
+  "license": "UNLICENSED",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^4.12.3",
+    "log": "^1.4.0",
+    "scrypt": "^6.0.3",
+    "swagger-express-mw": "^0.1.0",
+    "web3": "^1.0.0-beta.33"
+  },
+  "devDependencies": {
+    "should": "^7.1.0",
+    "supertest": "^1.0.0"
+  },
+  "scripts": {
+    "start": "node app.js",
+    "edit": "swagger project edit"
+  }
+}

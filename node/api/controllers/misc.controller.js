@@ -1,0 +1,45 @@
+'use strict';
+
+var Log = require('log');
+
+var miscService = require('../services/misc.service');
+
+
+
+////////////////////////////////////////////////////////////////////////////////
+// PROPERTIES
+////////////////////////////////////////////////////////////////////////////////
+
+var controllerName = '[Misc controller]';
+var log = new Log('debug');
+
+
+////////////////////////////////////////////////////////////////////////////////
+// PUBLIC FUNCTIONS
+////////////////////////////////////////////////////////////////////////////////
+
+function healthcheck(req, res) {
+  try {
+    miscService.healthcheck()
+      .then(() => {
+        res.status(200).send({ "message": "Ethereum node is connected and running" });
+      })
+      .catch(error => {
+        log.error(error)
+        res.status(500).send({ "message": "Ethereum node is not connected" });
+      })
+  }
+  catch (error) {
+    log.error(error)
+    res.status(500).send({ "message": "Ethereum node is not connected" });
+  }
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// PRIVATE FUNCTIONS
+////////////////////////////////////////////////////////////////////////////////
+
+
+module.exports = {
+  healthcheck
+}
