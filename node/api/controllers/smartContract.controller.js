@@ -22,7 +22,7 @@ function setGreet(req, res) {
     try {
       smartContractService.setGreet(req.body.newgreet)
         .then(result => {
-          res.status(200).send({ "result": true, "message": "Successfully saved new greet" });
+          res.status(200).send({ "result": true, "transaction": result.transactionHash, "message": "Successfully saved new greet" });
         })
         .catch(error => {
           log.error(error)
